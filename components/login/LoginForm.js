@@ -18,7 +18,7 @@ export default class LoginForm extends Component {
         return (
             <View style={styles.formcontrol}>
                 <FormLabel labelStyle={styles.formlabel}>Email/User Name:</FormLabel>
-                <TextInput style={styles.forminput} placeholder='Enter Email/User Name' underlineColorAndroid="#ddd"
+                <TextInput style={styles.forminput} placeholder='Enter Email/User Name' underlineColorAndroid="transparent"
                            keyboardType='email-address'
                            onChangeText={
                                (text) => {
@@ -40,7 +40,7 @@ export default class LoginForm extends Component {
                 />
                 {/*<Text style={{marginLeft:20, color:'#fff'}}>{this.state.typedText}</Text>*/}
                 <FormLabel labelStyle={styles.formlabel}>Password:</FormLabel>
-                <TextInput style={styles.forminput} placeholder='Enter Password' underlineColorAndroid="#ddd"
+                <TextInput style={styles.forminput} placeholder='Enter Password' underlineColorAndroid="transparent"
                            keyboardType='default' secureTextEntry={true}
                            onChangeText={(text) => {
                                this.setState(() => {
@@ -76,6 +76,8 @@ const styles = StyleSheet.create({
         paddingLeft: 3,
         paddingBottom: 5,
         color: '#fff',
+        borderBottomWidth:1,
+        borderBottomColor:'#ddd',
     },
     btnStyle: {
         marginTop: 30,
