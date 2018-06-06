@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="811ba11d-ae64-43bc-84fa-cbafb7785ee0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/components/cartoon/Cartoon.js" afterPath="$PROJECT_DIR$/components/cartoon/Cartoon.js" />
       <change beforePath="$PROJECT_DIR$/components/login/LoginForm.js" afterPath="$PROJECT_DIR$/components/login/LoginForm.js" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginForm.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginForm.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/login/LoginForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="54" column="111" lean-forward="false" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="111" />
+            <state relative-caret-position="216">
+              <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cartoon.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cartoon.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/cartoon/Cartoon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="25" column="67" lean-forward="false" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+            <state relative-caret-position="34">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -97,8 +97,8 @@
         <option value="$PROJECT_DIR$/api/user.json" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/components/user/UserList.js" />
-        <option value="$PROJECT_DIR$/components/login/LoginForm.js" />
         <option value="$PROJECT_DIR$/components/cartoon/Cartoon.js" />
+        <option value="$PROJECT_DIR$/components/login/LoginForm.js" />
       </list>
     </option>
   </component>
@@ -141,6 +141,11 @@
             <path>
               <item name="react-native-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="react-native-app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-native-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-native-app" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -191,12 +196,12 @@
       <updated>1528105646193</updated>
       <workItem from="1528105648266" duration="43657000" />
       <workItem from="1528280856686" duration="18000" />
-      <workItem from="1528283189134" duration="3710000" />
+      <workItem from="1528283189134" duration="6333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47385000" />
+    <option name="totallyTimeSpent" value="50008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -351,16 +356,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/login/LoginForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="54" column="111" lean-forward="false" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="111" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/cartoon/ShowHide.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -373,8 +368,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/cartoon/Cartoon.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="25" column="67" lean-forward="false" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-button/Button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1705">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/login/LoginForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="91" column="26" lean-forward="false" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

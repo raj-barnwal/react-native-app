@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Alert, Button, StyleSheet, TextInput, View} from 'react-native';
+import {Alert, StyleSheet, TextInput, View} from 'react-native';
 import {FormLabel} from 'react-native-elements';
+import Button from 'react-native-button';
 
 export default class LoginForm extends Component {
     constructor(props) {
@@ -52,7 +53,7 @@ export default class LoginForm extends Component {
                            ref={nextInput => this.nextInput = nextInput}
                 />
                 <View style={styles.btnStyle}>
-                    <Button title='Login' onPress={onButtonPress} style={{backgroundColor:'#070880',height:40}}/>
+                    <Button onPress={onButtonPress} style={styles.button}>LOGIN</Button>
                 </View>
             </View>
         )
@@ -82,5 +83,13 @@ const styles = StyleSheet.create({
     btnStyle: {
         marginTop: 30,
 
+    },
+    button:{
+        backgroundColor:'#070880',
+        borderRadius:5,
+        color:'#fff',
+        height:40,
+        letterSpacing:1.5,
+        lineHeight:40,
     }
 });
