@@ -18,10 +18,11 @@ export default class Cartoon extends Component{
         setInterval(taskToDo, timeToBlink);
     }
     render(){
+        var cartoonImage = require ('./../../assets/cartoon.png');
         let textToDisplay = this.state.showText ? this.props.inputText : '';
         return(
             <View style={{alignItems: 'center'}}>
-                <Image source={require('./../../assets/cartoon.png')}/>
+                <Image source={cartoonImage}/>
                 <Text style={styles.blinkText}>{textToDisplay}</Text>
             </View>
         )

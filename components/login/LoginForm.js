@@ -9,7 +9,7 @@ export default class LoginForm extends Component {
             typedText: 'Please Type your text',
             typedPassword: '',
         }
-    };
+    }
 
     render() {
         const onButtonPress = () => {
@@ -52,7 +52,7 @@ export default class LoginForm extends Component {
                            ref={nextInput => this.nextInput = nextInput}
                 />
                 <View style={styles.btnStyle}>
-                    <Button title='Login' onPress={onButtonPress}/>
+                    <Button title='Login' onPress={onButtonPress} style={{backgroundColor:'#070880',height:40}}/>
                 </View>
             </View>
         )
