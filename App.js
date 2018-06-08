@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import { ScrollView, StyleSheet, Text, View} from 'react-native';
 import LoginForm from './components/login/LoginForm';
 import ShowHide from './components/cartoon/ShowHide';
 import UserList from './components/user/UserList';
@@ -8,16 +8,15 @@ export default class App extends Component {
     render() {
         let newer=`Raj Barnwal`;
         return (
-            <View style={styles.container}>
-                <ScrollView>
-                    <Text style={styles.heading}>Welcome {newer}</Text>
-                    <Text style={styles.info}>Please login to view more information.</Text>
-                    <LoginForm/>
-                    <UserList/>
-                    <ShowHide/>
-                </ScrollView>
-
-            </View>
+            <ScrollView keyboardDismissMode='on-drag' minimumZoomScale={0.2} maximumZoomScale={3}>
+                <View style={styles.container} >
+                        <Text style={styles.heading}>Welcome {newer}</Text>
+                        <Text style={styles.info}>Please login to view more information.</Text>
+                        <LoginForm/>
+                        <UserList/>
+                        <ShowHide/>
+                </View>
+            </ScrollView>
         );
     }
 }

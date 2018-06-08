@@ -1,5 +1,21 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
+
+class FlatListItem extends Component{
+    render(){
+        return (
+            <View style={{flex:1, backgroundColor: this.props.index % 2 ==0 ? '#3685ff':'#2e4080',
+
+            }}>
+               <View style={{padding:10}}>
+                   <Text style={styles.flatlistStyle}>{this.props.item.id} . {this.props.item.name}</Text>
+                   <Text style={styles.flatlistStyle}>Contact: <Text style={{fontWeight:'bold'}}>{this.props.item.phone}</Text></Text>
+               </View>
+            </View>
+        )
+    }
+}
+
 
 export default class UserList extends Component{
     state = {
@@ -39,14 +55,25 @@ export default class UserList extends Component{
         return(
             <View style={styles.userListContainer}>
                 <Text style={styles.listTitle}>Newer List:</Text>
-                {
-                    this.state.user_data.map((item, index) => (
-                    <View key = {item.id} style = {styles.item}>
-                        <Text>{item.id}.  {item.name}</Text>
-                        <Text style={styles.contactDetails}> Contact - <Text style={{fontWeight:'bold'}}>{item.phone}</Text></Text>
-                    </View>
-                    ))
-                }
+                {/*{*/}
+                    {/*this.state.user_data.map((item, index) => (*/}
+                    {/*<View key = {item.id} style = {styles.item}>*/}
+                        {/*<Text>{item.id}.  {item.name}</Text>*/}
+                        {/*<Text style={styles.contactDetails}> Contact - <Text style={{fontWeight:'bold'}}>{item.phone}</Text></Text>*/}
+                    {/*</View>*/}
+                    {/*))*/}
+                {/*}*/}
+                <FlatList
+                    data={this.state.user_data}
+                    renderItem={({item,index})=>{
+                        return(
+                            <FlatListItem index={index} item={item} />
+                        )
+                    }}
+                    keyExtractor={(item, index) => index}
+                >
+
+                </FlatList>
             </View>
         )
     }
@@ -77,5 +104,10 @@ const styles = StyleSheet.create ({
         paddingTop:5,
         paddingBottom:5,
         paddingLeft:10
+    },
+    flatlistStyle:{
+        color:'#fff',
+        paddingBottom:5,
+        fontSize:16
     }
 })
