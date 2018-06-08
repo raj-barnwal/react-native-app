@@ -70,7 +70,7 @@ export default class UserList extends Component{
                             <FlatListItem index={index} item={item} />
                         )
                     }}
-                    keyExtractor={(item, index) => index}
+                    keyExtractor={(item, index) => index.toString()}  //It resolved key map with unique identification
                 >
 
                 </FlatList>
