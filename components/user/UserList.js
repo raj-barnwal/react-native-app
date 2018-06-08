@@ -1,33 +1,89 @@
 import React, {Component} from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {Alert, FlatList, StyleSheet, Text, View} from 'react-native';
+import Swipeout from 'react-native-swipeout';
 
 class FlatListItem extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeRowKey: null
+        };
+    }
     render(){
-        return (
-            <View style={{flex:1, backgroundColor: this.props.index % 2 ==0 ? '#3685ff':'#2e4080',
+        const swipeSettings = {
+            autoClose: true,
+            onClose: (secId, rowId, direction) => {
+                if(this.state.activeRowKey != null) {
+                    this.setState({ activeRowKey: null });
+                }
+            },
+            onOpen: (secId, rowId, direction) => {
+                this.setState({ activeRowKey: this.props.item.id });
+            },
+            right: [
+                {
+                    onPress: () => {
+                        const deletingRow = this.state.activeRowKey;
+                        Alert.alert(
+                            'Alert',
+                            'Are you sure you want to delete ?',
+                            [
+                                {text: 'Yes', onPress: () => {
+                                        this.props.data.splice(this.props.index, 1);
+                                        //Refresh FlatList !
+                                        this.props.parentFlatList.refreshFlatList(deletingRow);
+                                    }},
+                                {text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                            ],
+                            { cancelable: true }
+                        );
+                    },
+                    text: 'Delete', type: 'delete'
+                }
+            ],
+            rowId: this.props.index,
+            sectionId: 1
+        };
 
-            }}>
-               <View style={{padding:10}}>
-                   <Text style={styles.flatlistStyle}>{this.props.item.id} . {this.props.item.name}</Text>
-                   <Text style={styles.flatlistStyle}>Contact: <Text style={{fontWeight:'bold'}}>{this.props.item.phone}</Text></Text>
-               </View>
-            </View>
+        return (
+            <Swipeout {...swipeSettings}>
+                <View style={{flex:1, backgroundColor: this.props.index % 2 ==0 ? '#3685ff':'#2e4080',
+
+                }}>
+                   <View style={{padding:10}}>
+                       <Text style={styles.flatlistStyle}>{this.props.item.id} . {this.props.item.name}</Text>
+                       <Text style={styles.flatlistStyle}>Contact: <Text style={{fontWeight:'bold'}}>{this.props.item.phone}</Text></Text>
+                   </View>
+                </View>
+            </Swipeout>
         )
     }
 }
 
 
 export default class UserList extends Component{
-    state = {
-        user_data: []
-    };
+    constructor(props) {
+        super(props);
+        this.state = ({
+            deletedRowKey: null,
+            user_data: []
+        });
+    }
+    refreshFlatList = (deletedKey) => {
+        this.setState((prevState) => {
+            return {
+                deletedRowKey: deletedKey
+            };
+        });
+    }
+
     componentDidMount = () => {
         fetch('https://jsonplaceholder.typicode.com/users', {
             method: 'GET'
         })
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log(responseJson);
+                // console.log(responseJson);
 
                 this.setState({
                     user_data: responseJson
@@ -67,7 +123,7 @@ export default class UserList extends Component{
                     data={this.state.user_data}
                     renderItem={({item,index})=>{
                         return(
-                            <FlatListItem index={index} item={item} />
+                            <FlatListItem data={this.state.user_data} index={index} item={item} parentFlatList={this} />
                         )
                     }}
                     keyExtractor={(item, index) => index.toString()}  //It resolved key map with unique identification
