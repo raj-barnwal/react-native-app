@@ -33,6 +33,7 @@ export default class LoginForm extends Component {
                                }
                            }
                            autoFocus={true}
+                           autoCapitalize='none'
                            returnKeyType='next'
                            returnKeyLabel='next'
                            onSubmitEditing={() => {

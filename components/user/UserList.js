@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Alert, FlatList, StyleSheet, Text, View} from 'react-native';
+import {Alert, FlatList, Image, StyleSheet, Text, TouchableHighlight, View} from 'react-native';
 import Swipeout from 'react-native-swipeout';
 
 class FlatListItem extends Component{
@@ -46,16 +46,17 @@ class FlatListItem extends Component{
         };
 
         return (
-            <Swipeout {...swipeSettings}>
-                <View style={{flex:1, backgroundColor: this.props.index % 2 ==0 ? '#3685ff':'#2e4080',
+                <Swipeout {...swipeSettings}>
+                    <View style={{flex:1, backgroundColor: this.props.index % 2 ==0 ? '#3685ff':'#2e4080',
 
-                }}>
-                   <View style={{padding:10}}>
-                       <Text style={styles.flatlistStyle}>{this.props.item.id} . {this.props.item.name}</Text>
-                       <Text style={styles.flatlistStyle}>Contact: <Text style={{fontWeight:'bold'}}>{this.props.item.phone}</Text></Text>
-                   </View>
-                </View>
-            </Swipeout>
+                    }}>
+                        <View style={{padding:10}}>
+                            <Text style={styles.flatlistStyle}>{this.props.item.id} . {this.props.item.name}</Text>
+                            <Text style={styles.flatlistStyle}>Contact: <Text style={{fontWeight:'bold'}}>{this.props.item.phone}</Text></Text>
+                        </View>
+                    </View>
+                </Swipeout>
+
         )
     }
 }
@@ -75,7 +76,7 @@ export default class UserList extends Component{
                 deletedRowKey: deletedKey
             };
         });
-    }
+    };
 
     componentDidMount = () => {
         fetch('https://jsonplaceholder.typicode.com/users', {
@@ -92,7 +93,7 @@ export default class UserList extends Component{
             .catch((error) => {
                 console.error(error);
             });
-    }
+    };
     // state = {
     //     emp_name_list: [
     //         {'name': 'Deepak Mittal', 'id': 1, 'designation':'CEO'},
@@ -107,9 +108,23 @@ export default class UserList extends Component{
     //         {'name': 'TTN All', 'id': 10, 'designation':'Newer'},
     //     ]
     // };
+    // _onPressAdd(){
+    //     alert("You add item");
+    // }
     render(){
+        _onPressAdd = () => {
+            Alert.alert("You added one more item in the list of items.")
+        };
         return(
             <View style={styles.userListContainer}>
+                <View style={styles.actionStrip}>
+                    <TouchableHighlight underlayColor='#B1FFA0' style={{marginRight:10}} onPress={_onPressAdd}>
+                        <Image
+                            style={{width:30, height:30}}
+                            source={require('../../assets/plus-icon.png')}
+                        />
+                    </TouchableHighlight>
+                </View>
                 <Text style={styles.listTitle}>Newer List:</Text>
                 {/*{*/}
                     {/*this.state.user_data.map((item, index) => (*/}
@@ -165,5 +180,14 @@ const styles = StyleSheet.create ({
         color:'#fff',
         paddingBottom:5,
         fontSize:16
+    },
+    actionStrip:{
+        backgroundColor:'#fff',
+        borderWidth:1,
+        borderColor:'#ff3300',
+        height:50,
+        flexDirection:'row',
+        justifyContent:'flex-end',
+        alignItems:'center'
     }
-})
+});
